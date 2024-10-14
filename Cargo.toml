@@ -1,0 +1,28 @@
+[package]
+name = "home"
+version = "0.1.0"
+edition = "2021"
+authors = ["darkwater <dark@dark.red>"]
+
+[dependencies]
+bevy                 = { version = "0.14.2", features = ["dynamic_linking"] }
+bevy_atmosphere      = "0.10.0"
+bevy_egui            = "0.28.0"
+bevy-inspector-egui  = "0.26.0"
+bevy_panorbit_camera = "0.19.3"
+bevy_mod_picking     = { version = "0.20.1", default-features = false, features = [
+    "bevy_text", "bevy_ui", "highlight", "selection", "backend_raycast", "backend_sprite", "backend_bevy_ui"
+] }
+
+dotenvy    = "0.15.7"
+serde      = { version = "1.0.210", features = ["derive"] }
+serde_json = "1.0.128"
+surf = "2.3.2"
+serde_with = "3.11.0"
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+overflow-checks = false
