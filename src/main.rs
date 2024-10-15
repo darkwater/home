@@ -1,3 +1,5 @@
+#![allow(clippy::type_complexity)]
+
 use bevy::prelude::*;
 use bevy_atmosphere::plugin::AtmospherePlugin;
 use bevy_egui::EguiPlugin;
@@ -5,6 +7,7 @@ use bevy_mod_picking::DefaultPickingPlugins;
 use bevy_panorbit_camera::{PanOrbitCamera, PanOrbitCameraPlugin};
 
 mod hass;
+mod ws;
 
 fn main() {
     dotenvy::dotenv().unwrap();

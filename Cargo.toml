@@ -14,11 +14,17 @@ bevy_mod_picking     = { version = "0.20.1", default-features = false, features 
     "bevy_text", "bevy_ui", "highlight", "selection", "backend_raycast", "backend_sprite", "backend_bevy_ui"
 ] }
 
-dotenvy    = "0.15.7"
-serde      = { version = "1.0.210", features = ["derive"] }
-serde_json = "1.0.128"
-surf = "2.3.2"
-serde_with = "3.11.0"
+dotenvy           = "0.15.7"
+futures           = "0.3.31"
+itertools         = "0.13.0"
+log               = "0.4.22"
+rustls            = { version = "0.23.14", features = ["aws-lc-rs"] }
+serde             = { version = "1.0.210", features = ["derive"] }
+serde_json        = "1.0.128"
+serde_with        = "3.11.0"
+tokio             = { version = "1.40.0", features = ["rt-multi-thread"] }
+tokio-tungstenite = { version = "0.24.0", features = ["rustls-tls-webpki-roots"] }
+url               = "2.5.2"
 
 [profile.dev]
 opt-level = 1
