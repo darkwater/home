@@ -3,7 +3,6 @@
 use bevy::prelude::*;
 use bevy_atmosphere::plugin::AtmospherePlugin;
 use bevy_egui::EguiPlugin;
-use bevy_mod_picking::DefaultPickingPlugins;
 use bevy_panorbit_camera::{PanOrbitCamera, PanOrbitCameraPlugin};
 
 mod hass;
@@ -14,9 +13,15 @@ fn main() {
 
     App::new()
         .add_plugins((
-            DefaultPlugins,
+            DefaultPlugins.set(WindowPlugin {
+                primary_window: Some(Window {
+                    title: "home".into(),
+                    name: Some("red.dark.home".into()),
+                    ..default()
+                }),
+                ..default()
+            }),
             AtmospherePlugin,
-            DefaultPickingPlugins,
             EguiPlugin,
             PanOrbitCameraPlugin,
             hass::HassPlugin,
@@ -28,10 +33,8 @@ fn main() {
 }
 
 fn setup(asset_server: Res<AssetServer>, mut commands: Commands) {
-    commands.spawn(SceneBundle {
-        scene: asset_server.load(GltfAssetLabel::Scene(0).from_asset("home.glb")),
-        ..default()
-    });
+    commands
+        .spawn((SceneRoot(asset_server.load(GltfAssetLabel::Scene(0).from_asset("home.glb"))),));
 }
 
 fn setup_camera(query: Query<Entity, Added<Camera>>, mut commands: Commands) {

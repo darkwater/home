@@ -5,9 +5,8 @@ use serde::{Deserialize, Serialize};
 use tokio::net::TcpStream;
 use tokio_tungstenite::{tungstenite, MaybeTlsStream, WebSocketStream};
 
-use crate::ws::WsApi;
-
 use super::protocol::{HassRequest, HassResponse};
+use crate::ws::WsApi;
 
 #[derive(Debug, Default)]
 pub struct HassApi;
@@ -51,7 +50,7 @@ impl WsApi for HassApi {
         let auth = serde_json::to_string(&auth).expect("failed to serialize message");
 
         stream
-            .send(tungstenite::Message::Text(auth))
+            .send(tungstenite::Message::Text(auth.into()))
             .await
             .expect("failed to send message");
 

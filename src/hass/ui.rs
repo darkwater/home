@@ -18,7 +18,7 @@ pub fn render_names(
     };
 
     for (device, _, transform, children) in devices.iter() {
-        let Some(screen_position) =
+        let Ok(screen_position) =
             camera.world_to_viewport(camera_transform, transform.translation())
         else {
             continue;

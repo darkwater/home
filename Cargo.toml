@@ -5,26 +5,23 @@ edition = "2021"
 authors = ["darkwater <dark@dark.red>"]
 
 [dependencies]
-bevy                 = { version = "0.14.2", features = ["dynamic_linking"] }
-bevy_atmosphere      = "0.10.0"
-bevy_egui            = "0.28.0"
-bevy-inspector-egui  = "0.26.0"
-bevy_panorbit_camera = "0.19.3"
-bevy_mod_picking     = { version = "0.20.1", default-features = false, features = [
-    "bevy_text", "bevy_ui", "highlight", "selection", "backend_raycast", "backend_sprite", "backend_bevy_ui"
-] }
+bevy                 = { version = "0.15.2", features = ["dynamic_linking"] }
+bevy_atmosphere      = "0.12.2"
+bevy_egui            = "0.33.0"
+bevy-inspector-egui  = "0.29.1"
+bevy_panorbit_camera = "0.22.2"
 
 dotenvy           = "0.15.7"
 futures           = "0.3.31"
-itertools         = "0.13.0"
-log               = "0.4.22"
-rustls            = { version = "0.23.14", features = ["aws-lc-rs"] }
-serde             = { version = "1.0.210", features = ["derive"] }
-serde_json        = "1.0.128"
-serde_with        = "3.11.0"
-tokio             = { version = "1.40.0", features = ["rt-multi-thread"] }
-tokio-tungstenite = { version = "0.24.0", features = ["rustls-tls-webpki-roots"] }
-url               = "2.5.2"
+itertools         = "0.14.0"
+log               = "0.4.25"
+rustls            = { version = "0.23.23", features = ["aws-lc-rs"] }
+serde             = { version = "1.0.217", features = ["derive"] }
+serde_json        = "1.0.138"
+serde_with        = "3.12.0"
+tokio             = { version = "1.43.0", features = ["rt-multi-thread"] }
+tokio-tungstenite = { version = "0.26.2", features = ["rustls-tls-webpki-roots"] }
+url               = "2.5.4"
 
 [profile.dev]
 opt-level = 1

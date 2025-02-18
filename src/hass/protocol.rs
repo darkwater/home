@@ -54,7 +54,7 @@ impl From<HassRequest> for HassWrapper<HassRequest> {
 
 impl<T: Serialize> From<HassWrapper<T>> for tungstenite::Message {
     fn from(wrapper: HassWrapper<T>) -> Self {
-        tungstenite::Message::Text(serde_json::to_string(&wrapper).unwrap())
+        tungstenite::Message::Text(serde_json::to_string(&wrapper).unwrap().into())
     }
 }
 
